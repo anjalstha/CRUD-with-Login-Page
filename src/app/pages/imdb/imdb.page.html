@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      IMDb
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-input [(ngModel)]='topic' placeholder="Search"></ion-input>
+  </ion-item>
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <ion-button fill="outline" shape="round" color="success" (click)="search()">Search</ion-button>
+  </div>  <ion-list>
+    <ion-item *ngFor="let result of results">
+      <ion-thumbnail slot="start">
+        <img [src]="result.i.imageUrl">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ result.l }}</h2>
+        <p>{{ result.s }}</p>
+        <p>{{ result.qid }}</p>
+        <p>{{ result.y }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button fill="outline" shape="round" color="dark" (click)="goBack()">Go Back</ion-button>
+
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{selectedUser.name}}'s Detail
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="selectedUser.name" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="selectedUser.email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="selectedUser.password" name="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <input type="file" accept="image/jpeg, image/png" (change)="onFileSelected($event)">
+      <img [src]="sanitizer.bypassSecurityTrustUrl(selectedUser.image)" *ngIf="selectedUser.image" style="max-height: 200px; max-width: 200px;">
+    </ion-item>
+  </form>
+
+  <div class="ion-card-footer" style="display: flex; justify-content: center; margin-top: 10px; gap: 10px;">
+    <ion-button fill="solid" shape="round" color="success" (click)="updateUser()">Save</ion-button>
+    <ion-button fill="solid" shape="round" color="danger" (click)="deleteUser()">Delete</ion-button>
+  </div>
+  <ion-button fill="outline" shape="round" color="dark" (click)="goBack()">Go Back</ion-button>
+
+</ion-content>

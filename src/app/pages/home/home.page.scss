@@ -1,0 +1,57 @@
+.data-table{
+  width: 80%;
+  margin: 20px auto;
+  border: 1px solid white;
+}
+
+.my-cell-class, .my-header-class {
+  padding: 10px;
+  border-left: 1px solid white;
+}
+
+.my-cell-class:last-child, .my-header-class:last-child {
+  border-right: none;
+}
+
+.my-header-class:first-child, .my-cell-class:first-child {
+  border-left: none;
+}
+
+.my-table-row:hover {
+  cursor: pointer;
+  background-color: #009255;
+  transition: background-color 0.3s ease;
+}
+
+ion-toolbar{
+ --ion-background-color:#E1EAF9;
+}
+
+.ion-card-footer{
+ width: 100%;
+ height: 40px;
+ color: #85888D;
+ align-items: center;
+ justify-content: center;
+ display: flex;
+}
+
+span{
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mat-paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+

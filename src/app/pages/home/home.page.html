@@ -1,0 +1,61 @@
+<ion-header>
+  <!-- <ion-toolbar>
+    <ion-title style="text-align: center;">Registered Users</ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+  <h1 style="padding: 10px;">Hi, {{activeUser.name}}!</h1>
+  <h2 style="padding: 10px;">Here is the list of registered users:</h2>
+
+  <mat-card>
+  <div class="table-container">
+    <mat-table [dataSource]="dataSource"  matSort class="mat-elevation-z8 data-table my-table">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="my-header-class">Id</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="my-cell-class" (click)="setselectedUser(row.id)">
+          {{ row.id }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="my-header-class">Name</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="my-cell-class" (click)="setselectedUser(row.id)">
+          {{ row.name }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="my-header-class">Email</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="my-cell-class" (click)="setselectedUser(row.id)">
+          {{ row.email }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="password">
+        <mat-header-cell *matHeaderCellDef class="my-header-class">Password</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="my-cell-class" (click)="setselectedUser(row.id)">
+          <span>{{ row.password ? '*'.repeat(row.password.length) : '' }}</span>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columnsToDisplay" class="my-table-row"></mat-row>
+    </mat-table>
+
+
+    <mat-paginator [pageSizeOptions]="[5, 10]" [pageSize]="pageSize" [pageIndex]="pageIndex"
+      [length]="dataSource.data.length" (page)="onPageChanged($event)">
+    </mat-paginator>
+  </div>
+</mat-card>
+
+  <div class="ion-card-footer" style="display: flex; justify-content: center; margin-top: 10px;">
+    <ion-button fill="outline" shape="round" color="success" size="medium" (click)="addUser()">Register
+      User</ion-button>
+  </div>
+  <div class="ion-card-footer" style="display: flex; justify-content: center; margin-top: 10px;">
+    <ion-button fill="outline" shape="round" color="warning" size="medium" (click)="imdb()">Search Movies</ion-button>
+  </div>
+
+  <div class="ion-card-footer" style="display: flex; justify-content: center; margin-top: 10px;">
+    <ion-button fill="solid" shape="round" color="dark" (click)="logout()">Logout</ion-button>
+  </div>
+
+</ion-content>
